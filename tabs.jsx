@@ -12,11 +12,13 @@ var Tabs = React.createClass({
       // debugger
       var currentTab = this.state.selected === index ? "selected" : "disabled";
       return(
-        <li className={currentTab} onClick={this.handleClick} data-tabid={index}> {tab.title}</li>
+        <li className={currentTab} onClick={this.handleClick.bind(this, index)} key={index}> {tab.title}</li>
       );
+      // here we bind the index to be able to use it in the handleClick function
+      // otherwise that will throw nan error
     }.bind(this));
 
-    debugger;
+    // debugger;
 
     return(
       <div className='page'>
@@ -32,11 +34,10 @@ var Tabs = React.createClass({
     );
 
   },
-  handleClick: function(e){
-    e.preventDefault();
-    // debugger;
-    var newSelected = e.currentTarget.getAttribute('data-tabid');
-    this.setState({selected: parseInt(newSelected)});
+  handleClick: function(i, event){
+    event.preventDefault();
+    var index = i;
+    this.setState({selected: index});
 
   }
 
