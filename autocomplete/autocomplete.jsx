@@ -9,6 +9,12 @@ var Autocomplete = React.createClass({
     this.setState({search: e.target.value});
   },
 
+  handleClick: function(name, e){
+    e.preventDefault();
+
+    this.setState({search: name });
+  },
+
   render: function() {
 
     var matchingNames = [];
@@ -17,13 +23,13 @@ var Autocomplete = React.createClass({
     }.bind(this))
 
     var listItems = matchingNames.map(function(name){
-      return <li>{name}</li>
-    })
+      return <li key={name} onClick={this.handleClick.bind(this, name)}>{name}</li>
+    }.bind(this));
 
     return(
       <section>
         search:
-        <input type="text" onInput={this.handleInput} />
+        <input type="text" onInput={this.handleInput} value={this.state.search} />
 
         <ul>
           {listItems}
