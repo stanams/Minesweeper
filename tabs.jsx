@@ -16,7 +16,7 @@ var Tabs = React.createClass({
       );
     }.bind(this));
 
-    // debugger;
+    debugger;
 
     return(
       <div className='page'>
