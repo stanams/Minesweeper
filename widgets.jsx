@@ -4,6 +4,7 @@ var Tabs = require('./tabs');
 var WeatherClock = require('./weather-clock/weather_clock');
 var Autocomplete = require('./autocomplete/autocomplete');
 var Chance = require('chance');
+var Minesweeper = require('./minesweeper/game');
 
 var pageTabs = [
   {title: 'google', content: 'search resuts'},
@@ -33,5 +34,6 @@ var Widgets = React.createClass({
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(<Widgets />, document.getElementById('my-widget'));
+  ReactDOM.render(<Minesweeper />, document.getElementById('minesweeper-game'));
+  // ReactDOM.render(<Widgets />, document.getElementById('my-widget'));
 });

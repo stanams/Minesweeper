@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 var Autocomplete = React.createClass({
   getInitialState: function(){
@@ -32,7 +33,12 @@ var Autocomplete = React.createClass({
         <input type="text" onInput={this.handleInput} value={this.state.search} />
 
         <ul>
-          {listItems}
+          <ReactCSSTransitionGroup
+            transitionName="auto"
+            transitionEnterTimeout={1}
+            transitionLeaveTimeout={1}
+          >
+            {listItems}</ReactCSSTransitionGroup>
         </ul>
       </section>
     );
