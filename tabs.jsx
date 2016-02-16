@@ -15,7 +15,7 @@ var Tabs = React.createClass({
         <li className={currentTab} onClick={this.handleClick.bind(this, index)} key={index}> {tab.title}</li>
       );
       // here we bind the index to be able to use it in the handleClick function
-      // otherwise that will throw nan error
+      // otherwise that will throw an error
     }.bind(this));
 
     // debugger;
